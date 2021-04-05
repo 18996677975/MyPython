@@ -22,4 +22,15 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
+        left, right = 0, len(numbers) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if numbers[mid] > numbers[right]:
+                left = mid + 1
+            elif numbers[mid] < numbers[right]:
+                right = mid
+            else:
+                right -= 1
+
+        return numbers[left]
 # leetcode submit region end(Prohibit modification and deletion)

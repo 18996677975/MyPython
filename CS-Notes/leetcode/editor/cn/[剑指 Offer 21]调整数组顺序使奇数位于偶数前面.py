@@ -23,4 +23,14 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
+        from collections import deque
+        res = deque()
+
+        for num in nums:
+            if num & 1:
+                res.appendleft(num)
+            else:
+                res.append(num)
+
+        return list(res)
 # leetcode submit region end(Prohibit modification and deletion)

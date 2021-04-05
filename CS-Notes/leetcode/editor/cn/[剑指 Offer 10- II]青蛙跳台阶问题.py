@@ -35,4 +35,8 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def numWays(self, n: int) -> int:
+        a, b = 1, 1
+        for i in range(n):
+            a, b = b, a + b
+        return a % 1000000007
 # leetcode submit region end(Prohibit modification and deletion)

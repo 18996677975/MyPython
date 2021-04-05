@@ -18,4 +18,11 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def replaceSpace(self, s: str) -> str:
+        res = []
+        for c in s:
+            if c == ' ':
+                res.append('%20')
+            else:
+                res.append(c)
+        return ''.join(res)
 # leetcode submit region end(Prohibit modification and deletion)

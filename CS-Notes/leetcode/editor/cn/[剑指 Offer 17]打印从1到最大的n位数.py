@@ -21,4 +21,5 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def printNumbers(self, n: int) -> List[int]:
+        return [i for i in range(1, 10 ** n)]
 # leetcode submit region end(Prohibit modification and deletion)

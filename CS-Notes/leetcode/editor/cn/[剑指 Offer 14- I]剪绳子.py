@@ -28,4 +28,11 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def cuttingRope(self, n: int) -> int:
+        if n <= 3: return n - 1
+
+        from math import pow
+        x, y = n % 3, n // 3
+        if x == 0: return int(pow(3, y))
+        elif x == 1: return int(pow(3, y - 1) * 4)
+        else: return int(pow(3, y) * 2)
 # leetcode submit region end(Prohibit modification and deletion)

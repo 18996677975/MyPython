@@ -42,4 +42,5 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def myPow(self, x: float, n: int) -> float:
+        return x ** n
 # leetcode submit region end(Prohibit modification and deletion)

@@ -29,4 +29,11 @@
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
+        pre, cur = None, head
+        while cur:
+            tmp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = tmp
+        return pre
 # leetcode submit region end(Prohibit modification and deletion)

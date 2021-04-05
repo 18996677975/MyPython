@@ -39,4 +39,17 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        dic = {}
+        for i in range(len(inorder)):
+            dic[inorder[i]] = i
+
+        def recur(root, left, right):
+            if left > right: return
+            node = TreeNode(preorder[root])
+            idx = dic.get(preorder[root])
+            node.left = recur(root + 1, left, idx - 1)
+            node.right = recur(root + idx + 1 - left, idx + 1, right)
+            return node
+
+        return recur(0, 0, len(preorder) - 1)
 # leetcode submit region end(Prohibit modification and deletion)

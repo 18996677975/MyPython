@@ -34,4 +34,11 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def cuttingRope(self, n: int) -> int:
+        if n <= 3: return (n - 1) % 1000000007
+
+        a, b = n // 3, n % 3
+
+        if b == 0: return 3 ** a % 1000000007
+        if b == 1: return 3 ** (a - 1) * 4 % 1000000007
+        else: return 3 ** a * 2 % 1000000007
 # leetcode submit region end(Prohibit modification and deletion)

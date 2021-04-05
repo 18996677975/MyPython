@@ -25,4 +25,9 @@
 
 class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
+        res = []
+        while head:
+            res.append(head.val)
+            head = head.next
+        return res[::-1]
 # leetcode submit region end(Prohibit modification and deletion)

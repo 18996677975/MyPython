@@ -44,4 +44,12 @@
 
 class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
+        def recur(node):
+            if not node: return
+            node.left, node.right = node.right, node.left
+            recur(node.left)
+            recur(node.right)
+
+        recur(root)
+        return root
 # leetcode submit region end(Prohibit modification and deletion)

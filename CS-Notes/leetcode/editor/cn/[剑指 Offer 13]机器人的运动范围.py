@@ -28,4 +28,23 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def movingCount(self, m: int, n: int, k: int) -> int:
+        def digitSum(num):
+            res = 0
+            while num:
+                res += num % 10
+                num //= 10
+            return res
+
+        res = 1
+        dp = [[False for _ in range(n)] for _ in range(m)]
+        dp[0][0] = True
+
+        for i in range(m):
+            for j in range(n):
+                if i == 0 and j == 0: continue
+                if digitSum(i) + digitSum(j) <= k and (dp[i][j-1] or dp[i-1][j]):
+                    res += 1
+                    dp[i][j] = True
+
+        return res
 # leetcode submit region end(Prohibit modification and deletion)

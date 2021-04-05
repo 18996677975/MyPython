@@ -45,4 +45,11 @@
 
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
+        def dfs(A, B):
+            if not B: return True
+            if not A or A.val != B.val: return False
+            return dfs(A.left, B.left) and dfs(A.right, B.right)
+
+        return bool(A and B) and (dfs(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B))
+
 # leetcode submit region end(Prohibit modification and deletion)

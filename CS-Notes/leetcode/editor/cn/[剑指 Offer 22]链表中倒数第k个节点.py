@@ -23,4 +23,13 @@
 
 class Solution:
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
+        cur, resNode, idx = head, head, 0
+
+        while cur:
+            if idx >= k:
+                resNode = resNode.next
+            cur = cur.next
+            idx += 1
+
+        return resNode
 # leetcode submit region end(Prohibit modification and deletion)
