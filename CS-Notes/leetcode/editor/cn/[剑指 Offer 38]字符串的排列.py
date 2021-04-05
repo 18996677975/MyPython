@@ -24,4 +24,19 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def permutation(self, s: str) -> List[str]:
+        c, res = list(s), []
+        def dfs(x):
+            if x == len(c) - 1:
+                res.append(''.join(c))      # 添加排序方式
+                return
+            dic = set()
+            for i in range(x, len(c)):
+                if c[i] in dic: continue    # 重复，剪枝
+                dic.add(c[i])
+                c[i], c[x] = c[x], c[i]
+                dfs(x+1)
+                c[i], c[x] = c[x], c[i]
+
+        dfs(0)
+        return res
 # leetcode submit region end(Prohibit modification and deletion)
